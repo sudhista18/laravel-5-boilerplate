@@ -1,0 +1,21 @@
+- hosts: localhost
+  become: yes
+  tasks:
+     - name: install python
+       yum:
+         name: python-docker
+         state: present
+     - name: delete container
+       docker_container:
+         name: docker-container
+         state: absent
+     - name: running container
+       docker_container:
+         image: sudhista/boilerplate
+         state: started
+         interactive: yes
+         tty: yes
+         detach: yes
+         exposed_ports: 8080
+         published_ports: 80:8080
+name: docker-container
