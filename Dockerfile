@@ -6,7 +6,7 @@ RUN yum install sudo yum-utils git make gcc-c++ curl unzip epel-release -y && \
 COPY composer.sh .
     RUN chmod +x composer.sh && ./composer.sh
 RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash - && yum remove epel-release -y && yum install nodejs npm -y
-RUN git clone https://github.com/rappasoft/laravel-5-boilerplate.git && \
+RUN git clone https://github.com/sudhista18/laravel-5-boilerplate.git && \
     cd laravel-5-boilerplate && composer install && npm install -f && npm install acorn && npm run dev
 
 COPY env laravel-5-boilerplate/.env
